@@ -32,11 +32,13 @@ function AesCrypto(key){
     }
     function deCryptoStr(str){
         if(aesKey){
-            var encryptedBytes = aes.utils.hex.toBytes(str);
-            var aesCtr = new aes.ModeOfOperation.ctr(aesKey, new aes.Counter(5));
-            var decryptedBytes = aesCtr.decrypt(encryptedBytes);
-            var decryptedText = aes.utils.utf8.fromBytes(decryptedBytes);
-            return decryptedText           
+            try{
+                var encryptedBytes = aes.utils.hex.toBytes(str);
+                var aesCtr = new aes.ModeOfOperation.ctr(aesKey, new aes.Counter(5));
+                var decryptedBytes = aesCtr.decrypt(encryptedBytes);
+                var decryptedText = aes.utils.utf8.fromBytes(decryptedBytes);
+                return decryptedText
+            }catch(error){return str}       
         }else{
             return str
         }

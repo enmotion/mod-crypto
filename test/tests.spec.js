@@ -41,6 +41,12 @@ describe('mod-crypto 测试',function(){
             var result = C.deCryptoStrToData(C.enCryptoDataToStr(target));
             assert.deepEqual(result,null)
         })
+        it("加解密 非对象 undefined ,返回对象 result == null",function(){            
+            var C = new Mcrypto("qwerasdfzxcv!@#$")
+            var target={"name":{"v":"enmotion","m":"l","t":1609070531}};
+            var result = C.deCryptoStrToData(C.enCryptoDataToStr(target));
+            assert.deepEqual(result,target)
+        })
         it("加解密 Obejct ,返回对象 target == result",function(){            
             var C = new Mcrypto("qwerasdfzxcv!@#$")
             var target = {name:"mod",hoppy:["swiming"]}
