@@ -3,7 +3,8 @@
 * "author": "enmotion"
 * version:1.0.0
 */
-const aes = require('aes-js');
+import * as aes from 'aes-js';
+// const aes = require('aes-js');
 
 function AesCrypto(key){
     //验证正则，必须为16字符长度，限英文字母大小写，英文符号，数字
